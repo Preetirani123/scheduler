@@ -7,6 +7,7 @@ import Appointment from "components/Appointment/index";
 
 
 
+
 const appointments = [
   {
     id: 1,
