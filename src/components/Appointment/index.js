@@ -17,6 +17,7 @@ const CREATE = "CREATE";
 const SAVING = 'SAVING';
 const DELETING = 'DELETING';
 const CONFIRM = 'CONFIRM';
+const EDIT = 'EDIT';
 
 
 export default function Appointment(props){
@@ -48,6 +49,9 @@ export default function Appointment(props){
       .then(() => transition(EMPTY))
   }
 
+  
+  
+
   return(
     <article className="appointment">
     <Header time={props.time}/>
@@ -57,6 +61,7 @@ export default function Appointment(props){
     student={props.interview.student}
     interviewer={props.interview.interviewer}
     onDelete={InterviwDelete}
+    onEdit={() => {transition(EDIT)}}
     />
     )}
     {mode === CREATE && (
@@ -73,6 +78,14 @@ export default function Appointment(props){
           message="Delete the appointment?"
           onConfirm={confirmDelete}
           onCancel={back}
+        />
+      )}
+    {mode === EDIT && (
+        <Form
+          name={props.interview.student}
+          interviewers={props.interviewers}
+          onCancel={back}
+          onSave={save}
         />
       )}
   </article>
