@@ -5,12 +5,14 @@ import Show from 'components/Appointment/Show'
 import Empty from 'components/Appointment/Empty'
 import Form from 'components/Appointment/Form';
 import useVisualMode from 'hooks/useVisualMode'
+import Status from 'components/Appointment/Status'
 
 // add the mode condition
 
 const EMPTY = "EMPTY";
 const SHOW = "SHOW";
 const CREATE = "CREATE";
+const SAVING = 'SAVING';
 
 
 export default function Appointment(props){
@@ -19,6 +21,17 @@ export default function Appointment(props){
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
   );
+
+  // save function ------------------
+  function save(name, interviewer) {
+    const interview = {
+      student: name,
+      interviewer
+    };
+    transition(SAVING)
+    props.bookInterview(props.id, interview)
+      .then(() => transition(SHOW))
+  }
 
   return(
     <article className="appointment">
@@ -30,13 +43,14 @@ export default function Appointment(props){
     interviewer={props.interview.interviewer}
     />
     )}
-      {mode === CREATE && (
+    {mode === CREATE && (
         <Form
           interviewers={props.interviewers}
           onCancel={back}
-          onSave={back}
+          onSave={save}
         />
       )} 
+    {mode === SAVING && <Status message="Saving" />}
   </article>
   );
 }
