@@ -16,7 +16,6 @@ const CREATE = "CREATE";
 export default function Appointment(props){
 
 // use the usevisualmode to apply the condition
-
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
   );
@@ -33,8 +32,9 @@ export default function Appointment(props){
     )}
       {mode === CREATE && (
         <Form
-          interviewers={[]}
+          interviewers={props.interviewers}
           onCancel={back}
+          onSave={back}
         />
       )} 
   </article>
