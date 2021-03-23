@@ -7,8 +7,6 @@ import Confirm from "components/Appointment/Confirm";
 
 afterEach(cleanup);
 
-
-
 describe("Appointment", () => {
   it("renders without crashing", () => {
     render(<Appointment />);
