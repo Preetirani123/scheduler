@@ -7,7 +7,6 @@ import useApplicationData from "hooks/useApplicationData";
 
 
 export default function Application(props) {
-
   const {
     state,
     setDay,
@@ -17,7 +16,6 @@ export default function Application(props) {
 
   const dailyAppointments = getAppointmentsForDay(state, state.day);
   const dailyInterviewers = getInterviewersForDay(state, state.day);
-
 
   return (
     <main className="layout">
@@ -58,4 +56,4 @@ export default function Application(props) {
       </section>
     </main>
   );
-}
+};

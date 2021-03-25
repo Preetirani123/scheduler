@@ -1,4 +1,3 @@
-
 const fixtures = {
   days: [
     {
@@ -91,13 +90,12 @@ export default {
     });
   }),
   
-  delete: jest.fn(() => {
+   delete: jest.fn(() => {
     return Promise.resolve({
       status: 204,
       statusText: "No Content"
     })
 
-})
-    
+  })    
 };
 

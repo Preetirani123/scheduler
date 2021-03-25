@@ -1,10 +1,8 @@
 import React, { useState } from 'react'
-
 import InterviewerList from 'components/InterviewerList'
 import Button from 'components/Button'
 
 export default function Form(props) {
-
   const [name, setName] = useState(props.name || "");
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
   const [error, setError] = useState("");
@@ -18,7 +16,7 @@ export default function Form(props) {
     setError("");
     props.onSave(name, interviewer);
   }
-
+  // Reset-------------
   const reset = () => {
     setName("");
     setInterviewer('null');
@@ -29,10 +27,7 @@ export default function Form(props) {
     props.onCancel();
   }
 
-  
-
   return (
-
     <main className="appointment__card appointment__card--create">
       <section className="appointment__card-left">
         {/* form has an auto-Enter submit so it must be disabled */}
@@ -49,9 +44,8 @@ export default function Form(props) {
         </form>
         <section className="appointment__validation">{error}</section>
         <InterviewerList interviewers={props.interviewers} value={interviewer} onChange={setInterviewer} />
-
-
       </section>
+
       <section className="appointment__card-right">
         <section className="appointment__actions">
           <Button danger onClick={cancel}>Cancel</Button>
@@ -59,8 +53,5 @@ export default function Form(props) {
         </section>
       </section>
     </main>
-
-
-
   )
 };
