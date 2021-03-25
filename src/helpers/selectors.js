@@ -1,3 +1,5 @@
+
+//Retrieve the week day and return appointment information
 export  function getAppointmentsForDay(state, day) {
   const [filteredDay] = state.days.filter(days => days.name === day);
 
@@ -8,7 +10,7 @@ export  function getAppointmentsForDay(state, day) {
   return appointmentArray;
 };
 
-
+//Retrieve Interviewer information
 export function getInterview(state, interview) {
   if (interview) {
     return {
@@ -19,7 +21,7 @@ export function getInterview(state, interview) {
   return null;
 }
 
-
+//Retrieve the week day and return Interviewer list
 export  function getInterviewersForDay(state, day) {
   const [filteredDay] = state.days.filter(days => days.name === day);
 

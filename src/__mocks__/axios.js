@@ -1,3 +1,4 @@
+// fake data for testing
 const fixtures = {
   days: [
     {
@@ -53,7 +54,7 @@ const fixtures = {
   }
 };
 
-
+//Jest testing
 export default {
   defaults: { baseURL: "" },
   get: jest.fn(url => {
@@ -83,6 +84,7 @@ export default {
 
   }),
 
+  //Edit
   put: jest.fn(() => {
     return Promise.resolve({
       status: 204,
@@ -90,6 +92,7 @@ export default {
     });
   }),
   
+  //Delete
    delete: jest.fn(() => {
     return Promise.resolve({
       status: 204,
